@@ -2,6 +2,46 @@ let image_counter = 0;
 let products_array = [];
 let number_of_products_in_each_page = 15;
 let current_page = 1;
+console.log(window.localStorage.getItem("authToken"))
+
+
+
+function get_products()
+{
+    let link = "http://127.0.0.1:9950/main/"
+    let xhttp = new XMLHttpRequest();
+    xhttp.open("GET", link);
+
+    xhttp.onload = function() {
+        const result = JSON.parse(this.response);
+        console.log(this.response)
+        console.log(result)
+
+        for(let i = 0; i < 45; ++i) {
+            let temp = [];
+            temp.push(result[i][0]);
+            temp.push(result[i][1]);
+            temp.push(result[i][2]);
+            temp.push(result[i][3]);
+            console.log(temp);
+            products_array.push(temp);
+
+        }
+        slides_show();
+        products_renderer(current_page);
+        paging_controller();
+
+    }
+    xhttp.open("POST", link);
+    xhttp.setRequestHeader('Access-Control-Allow-Origin', link);
+    xhttp.setRequestHeader('Access-Control-Allow-Credentials', 'true');
+    xhttp.setRequestHeader("Usecase", "GetProduct");
+    xhttp.setRequestHeader("BaseName", "name"); // or pictureAddress or Category_name
+    xhttp.setRequestHeader("SortType", "0"); // or 1
+    xhttp.send();
+
+
+}
 
 function slides_show(){
     if(image_counter == 0){
@@ -349,7 +389,6 @@ function onmouseleave_handler(element) {
 
 
 }
-
 
 
 

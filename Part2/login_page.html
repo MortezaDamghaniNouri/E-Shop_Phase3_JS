@@ -1,0 +1,110 @@
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>فروشگاه</title>
+    <link href="login_page.css" type="text/css" rel="stylesheet" />
+    <meta http-equiv="content-language" content="fa" />
+</head>
+
+<body>
+
+    <header>
+        <div class="menu_items">
+            <div class="menu_item" id="shop_icon"> فروشگاه </div>
+            <div class="menu_item"> صفحه اول </div>
+            <div class="menu_item"> تماس با ما </div>
+            <div class="menu_item"> پشتیبانی </div>
+            <div class="menu_item"> محصولات </div>
+        </div>
+        <div class="menu_button">
+            <button type="button" id="menu_button"> ورود / ثبت نام </button>
+        </div>
+    </header>
+
+    <div class="authorization_div">
+        <form action="" class="authorization_form vertical_center">
+            <table class="authorization_table">
+                <tr>
+                    <th colspan="2">
+                        <p class="authorization_title">فروشگاه-ورود</p>
+                    </th>
+                </tr>
+
+               <tr>
+                    <th colspan="2">
+                        <label class="empty_lables"> </label>
+                    </th>
+                </tr>
+
+                <tr>
+                    <td><label class="lables">ایمیل</label></td>
+                    <td>
+                        <input oninput = "change_on_input(this)" onfocusout="clear_value_from_white_space(this)" type="text" 
+                            id="login_email" class="text_input" placeholder=" ایمیل خود را وارد کنید ...">
+                    </td>
+                </tr>
+                
+                <tr>
+                    <th colspan="2">
+                        <label class="error_message_lables" id="login_email_error"> </label>
+                    </th>
+                </tr>
+
+                <tr>
+                    <td><label class="lables">رمز عبور</label></td>
+                    <td>
+                        <input oninput = "change_on_input(this)" onfocusout="clear_value_from_white_space(this)" type="password" class="text_input" 
+                            id="login_password" placeholder=" رمز عبور خود را وارد کنید ...">
+                    </td>
+                </tr>
+
+                <tr>
+                    <th colspan="2">
+                        <label class="error_message_lables" id="login_password_error"> </label>
+                    </th>
+                </tr>
+
+                <tr>
+                    <th colspan="2">
+                        <label class="empty_lables"> </label>
+                    </th>
+                </tr>
+
+                <tr>
+                    <th colspan="2">
+                        <button id="login_button" class="authorization_button" onclick = "return load_modal(this)">ورود</button>
+                    </th>
+                </tr>
+                <tr>
+                    <th colspan="5">
+                        <label class="error_message_lables" id="basic_error"> </label>
+                    </th>
+                </tr>
+
+                <tr>
+                    <th colspan="2">
+                        اگر حسابی ثبت نکرده اید در این جا ثبت نام کنید
+                    </th>
+                </tr>
+
+
+            </table>
+        </form>
+    </div>
+    <div id="back_of_modal">
+
+        <!-- Modal content -->
+        <div class="the_modal">
+          <span class="close" onclick = "get_out()">&times;</span>
+          <br>
+          <br>
+          <div id = "modal_content"></div>
+        </div>
+      
+    </div>
+
+    <footer>تمامی حقوق برای توسعه دهندگان، مرتضی دامغانی نوری و امیر رضا شیرمست محفوظ است</footer>
+    <script src="script.js"></script>
+
+</body>
+</html>
